@@ -39,15 +39,15 @@ gulp.task('jade', function () {
 
 gulp.task('serve', ['jade', 'styles'], function (cb) {
   browserSync({
-    files: 'dist/**/*',
     server: {
       baseDir: ['dist']
     },
     open: true
-  }, cb);
-
-  gulp.watch(['app/**/*.jade'], ['jade']);
-  gulp.watch(['dist/**/*.html'], [browserSync.reload]);
-  gulp.watch(['app/**/*.less'], ['styles']);
-  gulp.watch(['dist/**/*.css'], [browserSync.reload]);
+  }, function () {
+    gulp.watch(['app/**/*.jade'], ['jade']);
+    gulp.watch(['dist/**/*.html'], [browserSync.reload]);
+    gulp.watch(['app/**/*.less'], ['styles']);
+    gulp.watch(['dist/**/*.css'], [browserSync.reload]);
+    cb();
+  });
 });
