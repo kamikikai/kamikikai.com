@@ -36,18 +36,28 @@ gulp.task('jade', function () {
     }))
     .pipe(gulp.dest('dist'));
 });
+gulp.task('copy', function () {
+  return gulp.src([
+    'app/*',
+    '!app/*.jade',
+    '!app/**/*.less',
+    '!app/bower_components'
+  ], {
+    dot: true
+  }).pipe(gulp.dest('dist'));
+});
 
-gulp.task('serve', ['jade', 'styles'], function (cb) {
+gulp.task('serve', ['jade', 'styles', 'copy'], function (cb) {
   browserSync({
     server: {
       baseDir: ['dist']
     },
-    open: true
+    open: !!~process.argv.indexOf('--open')
   }, function () {
     gulp.watch(['app/**/*.jade'], ['jade']);
-    gulp.watch(['dist/**/*.html'], [browserSync.reload]);
+    gulp.watch(['dist/**/*.html'], browserSync.reload);
     gulp.watch(['app/**/*.less'], ['styles']);
-    gulp.watch(['dist/**/*.css'], [browserSync.reload]);
+    gulp.watch(['dist/**/*.css'], browserSync.reload);
     cb();
   });
 });
