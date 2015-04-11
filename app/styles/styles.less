@@ -1,5 +1,14 @@
 @import (inline) "../bower_components/normalize.css/normalize.css";
 
+@purpleColor: #77428D;
+
+.centering(@l) {
+  width: @l;
+  height: @l;
+  margin-left: -@l / 2;
+  margin-top: -@l / 2;
+}
+
 .sidebar {
   top: 0;
   left: 0;
@@ -8,47 +17,55 @@
   width: 100%;
   height: 100%;
   position: absolute;
-  background-color: #77428D;
-  transition: all 1s cubic-bezier(0.25, 0.8, 0.25, 1);
+  background-color: @purpleColor;
+  transition: all .4s cubic-bezier(0.25, 0.8, 0.25, 1) .8s;
   &__logo {
     position: absolute;
     border-radius: 50%;
     left: 50%;
     top: 50%;
-    width: 240px;
-    height: 240px;
-    margin-left: -120px;
-    margin-top: -120px;
-    transition: all 1s cubic-bezier(0.25, 0.8, 0.25, 1);
+    .centering(240px);
+    transition: all .8s cubic-bezier(0.25, 0.8, 0.25, 1);
     overflow: hidden;
     background-color: #fff;
   }
 }
 
-.loaded .sidebar {
-  width: 100%;
-  height: 60px;
-  bottom: auto;
-  right: auto;
-  box-shadow: 2px 0 5px 0 rgba(0, 0, 0, 0.26);
-  &__logo {
-    //top: 60px;
-    //left: 60px;
-    //width: 120px;
-    //height: 120px;
-    //margin-left: -60px;
-    //margin-top: -60px;
-    background-color: rgba(0, 0, 0, 0);
+.menu {
+  opacity: 0;
+  transition: all .4s cubic-bezier(0.25, 0.8, 0.25, 1) 1.2s;
+}
+
+.content {
+  display: none;
+}
+
+.loaded {
+  .sidebar {
+    width: 100%;
+    height: 60px;
+    bottom: auto;
+    right: auto;
+    box-shadow: 2px 0 5px 0 rgba(0, 0, 0, 0.26);
+    &__logo {
+      background-color: rgba(0, 0, 0, 0);
+    }
+  }
+
+  .menu {
+    opacity: 1;
+  }
+
+  .content {
+    display: block;
   }
 }
 
 @media (min-width: 48em) {
   .sidebar__logo {
-    width: 480px;
-    height: 480px;
-    margin-left: -240px;
-    margin-top: -240px;
+    .centering(480px);
   }
+
   .loaded .sidebar {
     position: fixed;
     top: 0;
@@ -56,14 +73,47 @@
     width: 25%;
     height: 100%;
     &__logo {
-      border-radius: 50%;
-      width: 150px;
-      height: 150px;
+      .centering(180px);
       left: 50%;
-      margin-left: -75px;
-      margin-top: -75px;
-      top: 100px;
+      top: 135px;
       background-color: #fff;
+    }
+  }
+
+  .menu {
+    position: absolute;
+    top: 270px;
+    bottom: 0;
+    width: 100%;
+    background-color: darken(@purpleColor, 10%);
+    &__circle {
+      overflow: hidden;
+      width: 100%;
+      height: 60px;
+      background-color: @purpleColor;
+      position: relative;
+      &:before {
+        content: '';
+        border-radius: 50%;
+        width: 150%;
+        height: 400%;
+        left: -25%;
+        top: 50%;
+        display: block;
+        position: absolute;
+        background-color: darken(@purpleColor, 10%);
+        box-shadow: 0 0 5px 0 fadeout(darken(@purpleColor, 10%), 26%);
+      }
+    }
+    &__list {
+      text-align: center;
+      width: 180px;
+      height: 60px;
+      margin: 0 auto;
+      color: #fff;
+      font-size: 1.8em;
+      font-weight: bold;
+      line-height: 60px;
     }
   }
 
