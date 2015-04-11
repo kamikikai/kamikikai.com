@@ -36,9 +36,16 @@ gulp.task('jade', function () {
     }))
     .pipe(gulp.dest('dist'));
 });
+
+gulp.task('scripts', function () {
+  return gulp.src('app/scripts/*.js')
+    .pipe(gulp.dest('dist/scripts'));
+});
+
 gulp.task('copy', function () {
   return gulp.src([
     'app/*',
+    '!app/*.js',
     '!app/*.jade',
     '!app/**/*.less',
     '!app/bower_components'
@@ -47,7 +54,7 @@ gulp.task('copy', function () {
   }).pipe(gulp.dest('dist'));
 });
 
-gulp.task('serve', ['jade', 'styles', 'copy'], function (cb) {
+gulp.task('serve', ['jade', 'styles', 'scripts', 'copy'], function (cb) {
   browserSync({
     server: {
       baseDir: ['dist']
@@ -55,9 +62,9 @@ gulp.task('serve', ['jade', 'styles', 'copy'], function (cb) {
     open: !!~process.argv.indexOf('--open')
   }, function () {
     gulp.watch(['app/**/*.jade'], ['jade']);
-    gulp.watch(['dist/**/*.html'], browserSync.reload);
     gulp.watch(['app/**/*.less'], ['styles']);
-    gulp.watch(['dist/**/*.css'], browserSync.reload);
+    gulp.watch(['app/**/*.js'], ['scripts']);
+    gulp.watch(['dist/**/*.{html,css,js}'], browserSync.reload);
     cb();
   });
 });
