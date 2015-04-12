@@ -1,2 +1,1 @@
-# kamikikai.com
-kamikikai.com
+# www.kamikikai.com
