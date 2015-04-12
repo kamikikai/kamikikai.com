@@ -23,7 +23,7 @@ var AUTOPREFIXER_BROWSERS = [
 gulp.task('styles', function () {
   return gulp.src('app/styles/styles.less')
     .pipe($.less({
-      paths: ['app/styles']
+      paths: ['app/styles', 'app/bower_components']
     }))
     .pipe($.autoprefixer({browsers: AUTOPREFIXER_BROWSERS}))
     .pipe(gulp.dest('dist/styles'));
