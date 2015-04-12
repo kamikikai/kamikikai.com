@@ -26,11 +26,18 @@ gulp.task('styles', function () {
       paths: ['app/styles', 'app/bower_components']
     }))
     .pipe($.autoprefixer({browsers: AUTOPREFIXER_BROWSERS}))
+    .pipe($.csso())
     .pipe(gulp.dest('dist/styles'));
 });
 
 gulp.task('jade', function () {
   return gulp.src('app/*.jade')
+    .pipe($.inject(gulp.src('app/images/logo.svg'), {
+      transform: function (filepath, file, i, length) {
+        return file.contents.toString();
+      },
+      name: 'app/images/logo'
+    }))
     .pipe($.jade({
       locals: {}
     }))
@@ -44,7 +51,7 @@ gulp.task('scripts', function () {
 
 gulp.task('copy', function () {
   return gulp.src([
-    'app/*',
+    'app/**/*',
     '!app/*.js',
     '!app/*.jade',
     '!app/**/*.less',
@@ -64,7 +71,11 @@ gulp.task('serve', ['jade', 'styles', 'scripts', 'copy'], function (cb) {
     gulp.watch(['app/**/*.jade'], ['jade']);
     gulp.watch(['app/**/*.less'], ['styles']);
     gulp.watch(['app/**/*.js'], ['scripts']);
-    gulp.watch(['dist/**/*.{html,css,js}'], browserSync.reload);
+    gulp.watch(['dist/**/*.{html,css,js,svg}'], browserSync.reload);
     cb();
   });
+});
+
+gulp.task('default', ['jade', 'styles', 'scripts', 'copy'], function (cb) {
+  cb();
 });
