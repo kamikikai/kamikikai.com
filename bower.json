@@ -17,6 +17,7 @@
     "tests"
   ],
   "dependencies": {
-    "normalize.css": "~3.0.3"
+    "normalize.css": "~3.0.3",
+    "angular-scroll": "~0.6.5"
   }
 }
