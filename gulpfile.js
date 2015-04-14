@@ -100,9 +100,9 @@ gulp.task('serve', ['jade', 'styles', 'scripts', 'copy'], function (cb) {
   });
 });
 
-gulp.task('clean', del.bind(null, ['dist/*']));
+gulp.task('clean', del.bind(null, ['dist/**/*']));
 
-gulp.task('default', ['del'], function (cb) {
+gulp.task('default', ['clean'], function (cb) {
   env = 'prod';
   runSequence(['jade', 'styles', 'scripts', 'scripts:bower', 'copy:dist'], cb);
 });
