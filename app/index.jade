@@ -24,10 +24,14 @@ html(ng-app='kamikikaiApp')
         .menu__list
           a(href='#links')= 'LINKS'
     .content
-      #motto.content__section
-      #party.content__section
-      #info.content__section
-      #links.content__section
+      #motto.section
+        .section__square
+      #party.section
+        .section__square
+      #info.section
+        .section__square
+      #links.section
+        .section__square
     if env == 'dev'
       //- inject:js
       //- endinject

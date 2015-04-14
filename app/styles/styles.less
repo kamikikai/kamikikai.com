@@ -2,6 +2,10 @@
 
 @purpleColor: #77428D;
 
+a {
+  text-decoration: none;
+}
+
 .box-shadow--1() {
   box-shadow: 2px 0 5px 0 rgba(0, 0, 0, 0.26);
 }
@@ -73,6 +77,17 @@
   }
 }
 
+
+.section {
+  min-height: 480px;
+  height: 100%;
+  &__square {
+    .box-shadow--1();
+    margin: 120px auto;
+    .square(300px);
+  }
+}
+
 @media (min-width: 48em) {
   .sidebar__logo {
     .centering(480px);
@@ -134,16 +149,22 @@
       line-height: 60px;
       a {
         display: block;
+        color: #fff;
       }
     }
   }
 
   .content {
-    margin-left: 25%;
-    &__section {
-      .square(480px);
-      margin: 120px auto;
+    margin: 0 0 0 25%;
+  }
+
+  .section {
+    min-height: 640px;
+    height: 100%;
+    &__square {
       .box-shadow--1();
+      margin: 120px auto;
+      .square(540px);
     }
   }
 }
