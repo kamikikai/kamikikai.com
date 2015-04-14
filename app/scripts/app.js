@@ -1,11 +1,7 @@
-angular.module('kamikikaiApp', [])
+angular.module('kamikikaiApp', ['duScroll'])
   .controller('MainCtrl', function ($scope, $timeout, $element) {
     var diff = Date.now() - ps;
-    if (diff < 500) {
-      $timeout(function () {
-        $scope.loaded = true;
-      }, 500 - diff)
-    } else {
-      $scope.loaded = true
-    }
+    $timeout(function () {
+      $scope.loaded = true;
+    }, 500 - diff > 0 ? 500 - diff : 0);
   });

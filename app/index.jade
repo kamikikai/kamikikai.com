@@ -16,13 +16,13 @@ html(ng-app='kamikikaiApp')
       .menu
         .menu__circle
         .menu__list
-          a(href='#motto')= 'MOTTO'
+          a(href='#motto', du-smooth-scroll, du-scrollspy)= 'MOTTO'
         .menu__list
-          a(href='#party')= 'PARTY'
+          a(href='#party', du-smooth-scroll, du-scrollspy)= 'PARTY'
         .menu__list
-          a(href='#info')= 'INFO'
+          a(href='#info', du-smooth-scroll, du-scrollspy)= 'INFO'
         .menu__list
-          a(href='#links')= 'LINKS'
+          a(href='#links', du-smooth-scroll, du-scrollspy)= 'LINKS'
     .content
       #motto.section
         .section__square
