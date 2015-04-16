@@ -79,6 +79,7 @@ gulp.task('copy:dist', function () {
     '!app/*.js',
     '!app/*.jade',
     '!app/**/*.less',
+    '!app/bower_components',
     '!app/bower_components/**/*'
   ], {
     dot: true
