@@ -161,8 +161,20 @@ a {
         color: #fff;
         box-sizing: border-box;
         transition: all .4s cubic-bezier(0.25, 0.8, 0.25, 1);
+        position: relative;
         &.active {
           border-bottom: 1px solid #fff;
+          &:before {
+            content: '';
+            display: block;
+            position: absolute;
+            top: 50%;
+            left: 0;
+            width: 0;
+            height: 0;
+            border-radius: 50%;
+            box-shadow: 0 0 5px 5px rgba(255, 255, 255, 0.5);
+          }
         }
       }
     }
