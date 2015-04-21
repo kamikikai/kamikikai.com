@@ -10,6 +10,10 @@ a {
   box-shadow: 2px 0 5px 0 rgba(0, 0, 0, 0.26);
 }
 
+.box-shadow--2() {
+  box-shadow: 0 8px 17px rgba(0, 0, 0, 0.2);
+}
+
 .square (@l) {
   width: @l;
   height: @l;
@@ -52,10 +56,6 @@ a {
   transition: all .8s cubic-bezier(0.25, 0.8, 0.25, 1) .8s;
 }
 
-.v-spy {
-  display: none;
-}
-
 .content {
   display: none;
 }
@@ -81,12 +81,12 @@ a {
   }
 }
 
-
 .section {
   min-height: 480px;
   height: 750%;
   padding: 180px 0;
   &__square {
+    transition: all .4s cubic-bezier(0.25, 0.8, 0.25, 1);
     .box-shadow--1();
     margin: 0 auto;
     .square(300px);
@@ -186,5 +186,17 @@ a {
       .square(540px);
     }
   }
+}
+
+
+.v-spy {
+  display: none;
+}
+
+.active[href="#motto"] ~ .content #motto .section__square,
+.active[href="#party"] ~ .content #party .section__square,
+.active[href="#info"] ~ .content #info .section__square,
+.active[href="#links"] ~ .content #links .section__square {
+  .box-shadow--2();
 }
 
