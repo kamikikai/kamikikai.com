@@ -13,7 +13,7 @@ html(ng-app='kamikikaiApp')
       .sidebar__logo
         //- app/images/logo:svg
         //- endinject
-      .menu
+      .menu(du-spy-context)
         .menu__circle
         .menu__list
           a(href='#motto', du-smooth-scroll, du-scrollspy)= 'MOTTO'
@@ -23,6 +23,10 @@ html(ng-app='kamikikaiApp')
           a(href='#info', du-smooth-scroll, du-scrollspy)= 'INFO'
         .menu__list
           a(href='#links', du-smooth-scroll, du-scrollspy)= 'LINKS'
+    .v-spy(href='#motto', du-spy-context, du-scrollspy)
+    .v-spy(href='#party', du-spy-context, du-scrollspy)
+    .v-spy(href='#info', du-spy-context, du-scrollspy)
+    .v-spy(href='#links', du-spy-context, du-scrollspy)
     .content
       #motto.section
         .section__square

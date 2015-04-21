@@ -52,6 +52,10 @@ a {
   transition: all .8s cubic-bezier(0.25, 0.8, 0.25, 1) .8s;
 }
 
+.v-spy {
+  display: none;
+}
+
 .content {
   display: none;
 }
@@ -163,18 +167,6 @@ a {
         transition: all .4s cubic-bezier(0.25, 0.8, 0.25, 1);
         position: relative;
         &.active {
-          box-shadow: 2px 0 5px 0 rgba(255, 255, 255, 0.5);
-          &:before {
-            content: '';
-            display: block;
-            position: absolute;
-            top: 50%;
-            left: 0;
-            width: 0;
-            height: 0;
-            border-radius: 50%;
-            box-shadow: 0 0 5px 5px rgba(255, 255, 255, 0.5);
-          }
         }
       }
     }
