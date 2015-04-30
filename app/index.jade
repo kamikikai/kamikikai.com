@@ -30,6 +30,7 @@ html(ng-app='kamikikaiApp')
     .content
       #motto.section
         .section__square
+          img(src="images/motto.svg")
       #party.section
         .section__square
       #info.section
@@ -37,7 +38,8 @@ html(ng-app='kamikikaiApp')
       #links.section
         .section__square
       .section
-        .copyright= '© 2015 カミキカイ inc.'
+        .section__square
+          .copyright= '© 2015 カミキカイ inc.'
     if env == 'dev'
       //- inject:js
       //- endinject
