@@ -30,9 +30,10 @@ html(ng-app='kamikikaiApp')
     .content
       #motto.section
         .section__square
-          img.section__img(src="images/motto.svg")
+          img.section__img(src='images/motto.svg')
       #party.section
         .section__square
+          .member(ng-repeat='member in members')
       #info.section
         .section__square
       #links.section
