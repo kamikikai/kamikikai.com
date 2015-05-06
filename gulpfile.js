@@ -86,10 +86,18 @@ gulp.task('copy:dist', function () {
   }).pipe(gulp.dest('dist'));
 });
 
+var api = require('./api.json');
 gulp.task('serve', ['jade', 'styles', 'scripts', 'copy'], function (cb) {
   browserSync({
     server: {
-      baseDir: ['dist']
+      baseDir: ['dist'],
+      middleware: function (req, res, next) {
+        if (req.url.match(/^\/api\//)) {
+          res.setHeader("Content-Type", "application/json");
+          res.end(JSON.stringify(api[req.url]));
+        }
+        next();
+      }
     },
     open: !!~process.argv.indexOf('--open')
   }, function () {
