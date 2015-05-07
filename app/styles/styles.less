@@ -86,9 +86,10 @@ a {
   flex-flow: row wrap;
   justify-content: space-between;
   align-content: space-between;
+  overflow: hidden;
   .member {
-    width: 33%;
-    height: 33%;
+    width: 50%;
+    height: 50%;
     border-radius: 2px;
     overflow: hidden;
     position: relative;
@@ -238,6 +239,12 @@ a {
         }
         &:first-letter {
           font-family: 'Londrina Solid', cursive;
+        }
+        &:hover {
+          font-family: 'Londrina Solid', cursive;
+        }
+        &:hover:first-letter {
+          font-family: 'Londrina Outline', cursive;
         }
       }
     }
