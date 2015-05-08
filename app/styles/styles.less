@@ -88,8 +88,8 @@ a {
   align-content: space-between;
   overflow: hidden;
   .member {
-    width: 50%;
-    height: 50%;
+    width: 25%;
+    height: 25%;
     border-radius: 2px;
     overflow: hidden;
     position: relative;
@@ -235,16 +235,22 @@ a {
         font-size: 1em;
         &.active {
           font-size: 1.2em;
-          letter-spacing: .3em;
+          letter-spacing: .2em;
+          font-family: 'Londrina Solid', cursive;
+          //animation: ls 5s infinite cubic-bezier(0.25, 0.8, 0.25, 1);
+          &:before {
+            content: '#';
+            display: inline;
+            line-height: 1;
+            animation: shake 4s infinite linear;
+          }
         }
         &:first-letter {
           font-family: 'Londrina Solid', cursive;
+
         }
         &:hover {
           font-family: 'Londrina Solid', cursive;
-        }
-        &:hover:first-letter {
-          font-family: 'Londrina Outline', cursive;
         }
       }
     }
@@ -279,3 +285,38 @@ a {
   .box-shadow--2();
 }
 
+@keyframes shake {
+  0% {
+    transform: translate(0px, 0px) rotate(0deg);
+  }
+  2% {
+    transform: translate(0px, -9px) rotate(0deg);
+  }
+  4% {
+    transform: translate(0px, 6px) rotate(0deg);
+  }
+  6% {
+    transform: translate(0px, 6px) rotate(0deg);
+  }
+  8% {
+    transform: translate(0px, 1px) rotate(0deg);
+  }
+  10% {
+    transform: translate(0px, -4px) rotate(0deg);
+  }
+  12% {
+    transform: translate(0px, 1px) rotate(0deg);
+  }
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  20% {
+    transform: rotate(360deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
