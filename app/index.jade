@@ -34,7 +34,9 @@ html(ng-app='kamikikaiApp')
       #party.section
         .section__square
           .member(ng-repeat='member in members')
-            .member__name(ng-bind='member.name')
+            .member__info
+              .member__name(ng-bind='member.name')
+              .member__comment(ng-bind='member.comment')
             img.member__icon(ng-src='{{member.icon}}')
       #info.section
         .section__square
