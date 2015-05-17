@@ -101,9 +101,11 @@ a {
     }
 
     &__icon {
+      opacity: 1;
       display: block;
       height: 100%;
       position: absolute;
+      transition: all .8s cubic-bezier(0.25, 0.8, 0.25, 1);
     }
     &__name {
       text-align: center;
@@ -115,7 +117,7 @@ a {
       transition: all .8s cubic-bezier(0.25, 0.8, 0.25, 1);
     }
     &:hover .member__name {
-      height: 100%;
+      font-size: 1.5em;
     }
     &__comment {
       position: absolute;
@@ -125,19 +127,25 @@ a {
   }
 
   .member__radio:checked + .member__info {
-    width: @squareSize;
-    background-color: #EEEEEE;
+    width: @squareSize * 2 / 3;
     .member__name {
       top: 0;
-      left: @squareSize / 3;
+      //left: @squareSize / 3;
+      left: 0;
+      //width: @squareSize / 3;
       width: @squareSize * 2 / 3;
-      height: 50%;
+      height: 100%;
       line-height: 2;
     }
     .member__comment {
       top: 50%;
-      left: @squareSize / 3;
+      //left: @squareSize / 3;
+      left: 0;
+      //width: @squareSize / 3;
       width: @squareSize * 2 / 3;
+    }
+    .member__icon {
+      opacity: 0;
     }
   }
 }

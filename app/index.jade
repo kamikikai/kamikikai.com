@@ -36,9 +36,9 @@ html(ng-app='kamikikaiApp')
           label.member(ng-repeat='member in members')
             input.member__radio(type='radio', name='member')
             .member__info
-              .member__comment(ng-bind='member.comment')
               img.member__icon(ng-src='{{member.icon}}')
               .member__name(ng-bind='member.name')
+              .member__comment(ng-bind='member.comment')
       #info.section
         .section__square
       #links.section
