@@ -123,6 +123,7 @@ a {
       position: absolute;
       height: 50%;
       width: 0;
+      opacity: 0;
     }
   }
 
@@ -136,13 +137,43 @@ a {
       line-height: 2;
     }
     .member__comment {
+      opacity: 1;
       top: 50%;
       left: 0;
       width: @squareSize * 2 / 3;
     }
     .member__icon {
       height: @squareSize / 6;
+      border-radius: 50%;
     }
+  }
+}
+
+#links .section__square {
+  a {
+    font-weight: 400;
+    display: inline-block;
+    width: 50%;
+    color: #000;
+    font-size: 2.5rem;
+    text-align: center;
+    line-height: 5rem;
+    height: 5rem;
+  }
+  a:nth-of-type(2n) {
+    font-family: 'Londrina Outline', cursive;
+  }
+  a:nth-of-type(2n+1) {
+    font-family: 'Londrina Solid', cursive;
+
+  }
+  a:hover:first-letter {
+    font-variant: small-caps;
+    font-size: 5rem;
+
+  }
+  a:hover:after {
+    content: '>>>';
   }
 }
 
