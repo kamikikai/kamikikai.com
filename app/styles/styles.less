@@ -86,11 +86,13 @@ a {
   flex-flow: row wrap;
   justify-content: space-between;
   align-content: space-between;
-  overflow-y: scroll;
   .member {
     border-radius: 2px;
     position: relative;
     cursor: pointer;
+    &:nth-of-type(n + 9) {
+      display: none;
+    }
     &__radio {
       display: none;
     }
@@ -117,7 +119,6 @@ a {
       transition: all .8s cubic-bezier(0.25, 0.8, 0.25, 1);
     }
     &:hover .member__name {
-      font-size: 1.5em;
     }
     &__comment {
       position: absolute;
@@ -135,6 +136,7 @@ a {
       width: @squareSize * 2 / 3;
       height: 100%;
       line-height: 2;
+      font-size: 1.5em;
     }
     .member__comment {
       opacity: 1;
