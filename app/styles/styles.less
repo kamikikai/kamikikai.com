@@ -56,6 +56,13 @@ a {
       .square(240px);
     }
   }
+
+  &__name {
+    font-size: 40px;
+    line-height: 70px;
+    color: #fff;
+    margin-left: 80px;
+  }
 }
 
 .menu {
@@ -172,10 +179,7 @@ a {
   a:hover:first-letter {
     font-variant: small-caps;
     font-size: 5rem;
-
-  }
-  a:hover:after {
-    content: ' > > >';
+    line-height: 2.5rem;
   }
 }
 
@@ -200,7 +204,15 @@ a {
     right: auto;
     .box-shadow--1();
     &__logo {
-      opacity: 0;
+      border-radius: 50%;
+      left: 70px / 2;
+      top: 70px / 2;
+      .centering(60px);
+      background-color: #fff;
+      svg {
+        transition: all .8s cubic-bezier(0.25, 0.8, 0.25, 1) .8s;
+        .square(60px);
+      }
     }
   }
 
@@ -215,6 +227,9 @@ a {
 
 @media (max-width: 48em) {
   .loaded {
+    .sidebar__logo {
+
+    }
     .menu {
       display: none;
     }
@@ -271,6 +286,9 @@ a {
     svg {
       .square(480px);
     }
+  }
+  .sidebar__name {
+    display: none;
   }
 
   .loaded .sidebar {
