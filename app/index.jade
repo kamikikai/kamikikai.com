@@ -34,12 +34,14 @@ html(ng-app='kamikikaiApp')
           img.section__img(src='images/motto.svg')
       #party.section
         .section__square
-          label.member(ng-repeat='member in members')
-            input.member__radio(type='radio', name='member')
-            .member__info
-              img.member__icon(ng-src='{{member.icon}}')
-              .member__name(ng-bind='member.name')
-              .member__comment(ng-bind='member.comment')
+          .members
+          //canvas.member-canvas(width='540', height='540')
+          //label.member(ng-repeat='member in members')
+          //  input.member__radio(type='radio', name='member')
+          //  .member__info
+          //    img.member__icon(ng-src='{{member.icon}}')
+          //    .member__name(ng-bind='member.name')
+          //    .member__comment(ng-bind='member.comment')
       #info.section
         .section__square
       #links.section
