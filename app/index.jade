@@ -35,13 +35,7 @@ html(ng-app='kamikikaiApp')
       #party.section
         .section__square
           .members
-          //canvas.member-canvas(width='540', height='540')
-          //label.member(ng-repeat='member in members')
-          //  input.member__radio(type='radio', name='member')
-          //  .member__info
-          //    img.member__icon(ng-src='{{member.icon}}')
-          //    .member__name(ng-bind='member.name')
-          //    .member__comment(ng-bind='member.comment')
+            .members__name(ng-bind='member.name')
       #info.section
         .section__square
       #links.section

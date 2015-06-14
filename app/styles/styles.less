@@ -93,68 +93,9 @@ a {
   flex-flow: row wrap;
   justify-content: space-between;
   align-content: space-between;
-  .member {
-    border-radius: 2px;
-    position: relative;
-    cursor: pointer;
-    &:nth-of-type(n + 9) {
-      display: none;
-    }
-    &__radio {
-      display: none;
-    }
 
-    &__info {
-      width: @squareSize / 3;
-      height: @squareSize /3;
-    }
-
-    &__icon {
-      opacity: 1;
-      display: block;
-      height: 100%;
-      position: absolute;
-      transition: all .8s cubic-bezier(0.25, 0.8, 0.25, 1);
-    }
-    &__name {
-      text-align: center;
-      position: absolute;
-      height: 1.5em;
-      line-height: 1.5;
-      width: @squareSize / 3;
-      background-color: rgba(255, 255, 255, .7);
-      transition: all .8s cubic-bezier(0.25, 0.8, 0.25, 1);
-    }
-    &:hover .member__name {
-    }
-    &__comment {
-      position: absolute;
-      height: 50%;
-      width: 0;
-      opacity: 0;
-    }
-  }
-
-  .member__radio:checked + .member__info {
-    width: @squareSize * 2 / 3;
-    .member__name {
-      top: 0;
-      left: 0;
-      width: @squareSize * 2 / 3;
-      height: 100%;
-      line-height: 2;
-      font-size: 1.5em;
-    }
-    .member__comment {
-      opacity: 1;
-      top: 50%;
-      left: 0;
-      width: @squareSize * 2 / 3;
-    }
-    .member__icon {
-      height: @squareSize / 6;
-      border-radius: 50%;
-    }
+  .members__name {
+    position: absolute;
   }
 }
 
@@ -361,26 +302,32 @@ a {
         transition: all .4s cubic-bezier(0.25, 0.8, 0.25, 1);
         position: relative;
         font-size: 1em;
+
+        &:first-letter {
+          font-family: 'Londrina Solid', cursive;
+        }
+        &:hover {
+          font-family: 'Londrina Solid', cursive;
+        }
         &.active {
           font-size: 1.2em;
           letter-spacing: .2em;
-          font-family: 'Londrina Solid', cursive;
+          font-family: 'Londrina Outline', cursive;
           &:before {
             content: '#';
             display: inline;
             line-height: 1;
             animation: shake 4s infinite linear;
           }
+          &:before {
+            font-family: 'Londrina Solid', cursive;
+          }
+          &:hover {
+            font-family: 'Londrina Outline', cursive;
+          }
           &:hover:before {
             color: @lightPurpleColor;
           }
-        }
-        &:first-letter {
-          font-family: 'Londrina Solid', cursive;
-
-        }
-        &:hover {
-          font-family: 'Londrina Solid', cursive;
         }
       }
     }
