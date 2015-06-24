@@ -89,11 +89,6 @@ a {
 }
 
 #party .section__square {
-  display: flex;
-  flex-flow: row wrap;
-  justify-content: space-between;
-  align-content: space-between;
-
   .members__name {
     position: absolute;
   }
@@ -197,32 +192,8 @@ a {
 
   #party .section__square {
     .members {
-
       transform: scale(0.5555);
       transform-origin: top left;
-    }
-    .member {
-      &__info {
-        width: @squareSizeMobile / 3;
-        height: @squareSizeMobile /3;
-      }
-
-      &__name {
-        width: @squareSizeMobile / 3;
-      }
-    }
-
-    .member__radio:checked + .member__info {
-      width: @squareSizeMobile * 2 / 3;
-      .member__name {
-        width: @squareSizeMobile * 2 / 3;
-      }
-      .member__comment {
-        width: @squareSizeMobile * 2 / 3;
-      }
-      .member__icon {
-        height: @squareSizeMobile / 6;
-      }
     }
   }
 }
@@ -347,6 +318,13 @@ a {
         height: 270px;
         border-bottom: none;
       }
+    }
+  }
+
+  #info .section__square {
+    .fb-page {
+      transform: scale(1.8);
+      transform-origin: top left;
     }
   }
 }
